@@ -1,0 +1,20 @@
+
+1. 
+
+Assumptions: Our company is rich.
+
+make it high performance
+	1. deploy Kafka cluster to the nearby AWS regions which close to your customers.
+	2. select high performance EC2 instance type.
+	3. scale out Kafka broker capacity: maybe deploy more broker processes on multiple EC2 instances. 
+	4. scale out Kafka consumer/producer capacities too.
+
+make it HA: 
+	1. deploy Kafka cluster to multiple regions. Write client side logic to handle region failure case. Once it happens, client will route requests to another functional region. There is a takeaway from Netflix outage. http://techblog.netflix.com/2011/04/lessons-netflix-learned-from-aws-outage.html
+
+	N+1 rule of scale out learned from Netflix:
+		3.1 always provision at least one reserved EC2 instance in each AZ inside one region.
+		3.2 always deploy service in multiple regions.
+
+
+	2. try to think building our own datacenter and deploy one copy to it, just in case AWS multiple nearby regions are down, and faraway regions cannot provide the performance we want. 
