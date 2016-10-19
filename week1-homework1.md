@@ -199,7 +199,7 @@ dataLength = 11
 numChildren = 0
 ```
 
-### Watcher
+### Set Watcher
 > [zk: 192.168.99.100:2181(CONNECTED) 15] get /workers true
 ```
 unclebarney
