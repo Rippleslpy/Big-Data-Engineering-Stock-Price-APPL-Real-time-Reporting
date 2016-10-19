@@ -288,14 +288,14 @@ bigdata
 ```
 
 ### Look up on Zookeeper
-> ./zkCli.sh -server \`docker-machine ip bigdata`:2181
+> $ ./zkCli.sh -server \`docker-machine ip bigdata`:2181
 > <br/> [zk: 192.168.99.100:2181(CONNECTED) 0] ls /
 ```
 [controller, controller_epoch, brokers, zookeeper, admin, isr_change_notification, consumers, config]
 ```
 
 ### Produce Messages
-> ./kafka-console-producer.sh --broker-list \`docker-machine ip bigdata`:9092 --topic bigdata
+> $ ./kafka-console-producer.sh --broker-list \`docker-machine ip bigdata\`:9092 --topic bigdata
 > <br> ``以下是输入的内容``
 ```
 this line is produced before starting consumer
@@ -304,11 +304,11 @@ this line is produced after stopping consumer
 ```
 
 ### Consume Messages
-> ./kafka-console-consumers.sh --zookeeper \`docker-machine ip bigdata`:2181 --topic bigdata
+> $ ./kafka-console-consumers.sh --zookeeper \`docker-machine ip bigdata`:2181 --topic bigdata
 ```
 this line is produced after starting consumer
 ```
-> ./kafka-console-consumers.sh --zookeeper \`docker-machine ip bigdata`:2181 --topic bigdata --from-beginning
+> $ ./kafka-console-consumers.sh --zookeeper \`docker-machine ip bigdata`:2181 --topic bigdata --from-beginning
 ```
 this line is produced before starting consumer
 this line is produced after starting consumer
