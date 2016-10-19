@@ -1,3 +1,16 @@
+**这是文字粗体格式**
+
+__这是文字粗体格式__
+
+*这是文字斜体格式*
+
+_这是文字斜体格式_
+
+~~在文字上添加删除线~~
+
+++插入的文字++
+
+==被记号的文字==
 # Dependencies
 
 > ``scala -version``
@@ -7,8 +20,7 @@ Scala code runner version 2.11.8 -- Copyright 2002-2016, LAMP/EPFL
 ```
 > $ sbt sbtVersion
 
-```
-Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0
+```Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0
 [info] Set current project to xb (in build file:/C:/Users/xb/)
 [info] 0.13.12
 ```
@@ -28,8 +40,10 @@ pip 8.1.2 from c:\python27\lib\site-packages (python 2.7)
 # Work with Zookeeper
 ### Start Zookeeper Server
 > docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 --name zookeeper confluent/zookeeper
+
+++首次执行时：+
+
 ```
->>++首次执行时：++<<
 Unable to find image 'confluent/zookeeper:latest' locally
 latest: Pulling from confluent/zookeeper
 51f5c6a04d83: Pull complete
