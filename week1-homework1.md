@@ -157,7 +157,7 @@ numChildren = 0
 
 ### Delete Znode Data
 > [zk: 192.168.99.100:2181(CONNECTED) 7] delete /workers
-> [zk: 192.168.99.100:2181(CONNECTED) 8] ls /
+[zk: 192.168.99.100:2181(CONNECTED) 8] ls /
 ```
 [zookeeper]
 ```
@@ -231,6 +231,7 @@ WatchedEvent state:SyncConnected type:NodeDeleted path:/workers
 # Work with Kafka
 ### Start kafka Server
 > $ docker run -d -p 9092:9092 -e KAFKA_ADVERTISED_HOST_NAME=\`docker-machine ip bigdata` -e KAFKA_ADVERTISED_PORT=9092 --name kafka --link zookeeper:zookeeper confluent/kafka
+> 
 > <br/> ``首次执行时：``
 ```
 Unable to find image 'confluent/kafka:latest' locally
@@ -289,14 +290,14 @@ bigdata
 
 ### Look up on Zookeeper
 > ./zkCli.sh -server \`docker-machine ip bigdata`:2181
-> [zk: 192.168.99.100:2181(CONNECTED) 0] ls /
+[zk: 192.168.99.100:2181(CONNECTED) 0] ls /
 ```
 [controller, controller_epoch, brokers, zookeeper, admin, isr_change_notification, consumers, config]
 ```
 
 ### Produce Messages
 > ./kafka-console-producer.sh --broker-list \`docker-machine ip bigdata`:9092 --topic bigdata
-> <br/>``以下是输入的内容``
+``以下是输入的内容``
 ```
 this line is produced before starting consumer
 this line is produced after starting consumer
@@ -317,8 +318,8 @@ this line is produced after stopping consumer
 
 ### Look into Kafka Broker
 > $ docker exec -it kafka bash
-> confluent@f22de4ef65b1:/$ cd /var/lib/kafka
-> confluent@f22de4ef65b1:/var/lib/kafka$ ls
+confluent@f22de4ef65b1:/$ cd /var/lib/kafka
+confluent@f22de4ef65b1:/var/lib/kafka$ ls
 ```
 bigdata-0  cleaner-offset-checkpoint  meta.properties  recovery-point-offset-checkpoint  replication-offset-checkpoint
 ```
