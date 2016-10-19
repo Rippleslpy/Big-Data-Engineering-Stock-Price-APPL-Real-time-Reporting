@@ -24,6 +24,7 @@ pip 8.1.2 from c:\python27\lib\site-packages (python 2.7)
 ### Start Zookeeper Server
 > $ docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 --name zookeeper confluent/zookeeper
 >> ``首次执行时：``
+
 ```
 Unable to find image 'confluent/zookeeper:latest' locally
 latest: Pulling from confluent/zookeeper
