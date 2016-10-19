@@ -72,7 +72,7 @@ CONTAINER ID        IMAGE                 COMMAND                  CREATED      
 
 ### Zookeeper CLI
 > $ cd zookeeper-3.4.9/bin
-> $ ./zkCli.sh -server  `docker-machine ip bigdata`:2181
+> $ ./zkCli.sh -server  \`docker-machine ip bigdata`:2181
 ```
 Connecting to 192.168.99.100:2181
 2016-10-19 17:16:10,273 [myid:] - INFO  [main:Environment@100] - Client environment:zookeeper.version=3.4.9-1757313, built on 08/23/2016 06:50 GMT
@@ -96,9 +96,9 @@ Welcome to ZooKeeper!
 2016-10-19 17:16:10,504 [myid:] - INFO  [main-SendThread(192.168.99.100:2181):ClientCnxn$SendThread@876] - Socket connection established to 192.168.99.100/192.168.99.100:2181, initiating session
 JLine support is enabled
 [zk: 192.168.99.100:2181(CONNECTING) 0] 2016-10-19 17:16:10,551 [myid:] - INFO  [main-SendThread(192.168.99.100:2181):ClientCnxn$SendThread@1299] - Session establishment complete on server 192.168.99.100/192.168.99.100:2181, sessionid = 0x157dc2a71b60000, negotiated timeout = 30000
-
+<br>
 WATCHER::
-
+<br/>
 WatchedEvent state:SyncConnected type:None path:null
 ```
 ### Browse Znode Data
