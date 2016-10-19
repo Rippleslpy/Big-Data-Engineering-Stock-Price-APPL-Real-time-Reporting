@@ -22,7 +22,7 @@ pip 8.1.2 from c:\python27\lib\site-packages (python 2.7)
 
 # Work with Zookeeper
 ### Start Zookeeper Server
-> docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 --name zookeeper confluent/zookeeper
+> $ docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 --name zookeeper confluent/zookeeper
 ``首次执行时：``
 ```
 Unable to find image 'confluent/zookeeper:latest' locally
@@ -55,7 +55,7 @@ b25ff1e39f749b60827da47968c8a43c3343943f871d5e1a63eb489aed09c501
 ```
 74f2770cd5e66178dfe1598d37aeb2624f4e2a483b42a54bd9fef710e8250314
 ```
->$ docker images
+> $docker images
 ```
 REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
 hello-world             latest              c54a2cc56cbb        3 months ago        1.848 kB
@@ -63,7 +63,7 @@ confluent/zookeeper     latest              4a1778ad1528        4 months ago    
 confluent/kafka         latest              2b9ba35e1775        4 months ago        584.5 MB
 unclebarney/chit-chat   latest              639e46d7a14a        8 months ago        31.86 MB
 ```
->$ docker ps
+> $ docker ps
 ```
 CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                                                                    NAMES
 74f2770cd5e6        confluent/zookeeper   "/usr/local/bin/zk-do"   2 minutes ago       Up 2 minutes        0.0.0.0:2181->2181/tcp, 0.0.0.0:2888->2888/tcp, 0.0.0.0:3888->3888/tcp   zookeeper
