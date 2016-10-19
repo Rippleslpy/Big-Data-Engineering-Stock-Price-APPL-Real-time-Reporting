@@ -23,9 +23,8 @@ pip 8.1.2 from c:\python27\lib\site-packages (python 2.7)
 # Work with Zookeeper
 ### Start Zookeeper Server
 > $ docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 --name zookeeper confluent/zookeeper
-><br/> ``首次执行时：``
-
-> ```
+<br/> ``首次执行时：``
+```
 Unable to find image 'confluent/zookeeper:latest' locally
 latest: Pulling from confluent/zookeeper
 51f5c6a04d83: Pull complete
@@ -52,7 +51,7 @@ Digest: sha256:bb097bce322f5553ed1511234f97e7eedb0900211c46958357fbcb342917cbf8
 Status: Downloaded newer image for confluent/zookeeper:latest
 b25ff1e39f749b60827da47968c8a43c3343943f871d5e1a63eb489aed09c501
 ```
-``第二次及以后执行时：``
+``再次执行时：``
 ```
 74f2770cd5e66178dfe1598d37aeb2624f4e2a483b42a54bd9fef710e8250314
 ```
