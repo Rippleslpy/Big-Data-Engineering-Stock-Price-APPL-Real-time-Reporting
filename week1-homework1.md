@@ -1,6 +1,6 @@
 # Dependencies
 
-> $ scala -version
+> ``scala -version``
 
 ```
 Scala code runner version 2.11.8 -- Copyright 2002-2016, LAMP/EPFL
