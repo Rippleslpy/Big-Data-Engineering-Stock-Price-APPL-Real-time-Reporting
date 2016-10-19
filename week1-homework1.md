@@ -1,20 +1,24 @@
 # Dependencies
 
 > $ scala -version
+
 ```
 Scala code runner version 2.11.8 -- Copyright 2002-2016, LAMP/EPFL
 ```
 > $ sbt sbtVersion
+
 ```
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0
 [info] Set current project to xb (in build file:/C:/Users/xb/)
 [info] 0.13.12
 ```
 > $ python --version
+
 ```
 Python 2.7.10
 ```
 > $ pip --version
+
 ```
 pip 8.1.2 from c:\python27\lib\site-packages (python 2.7)
 ```
@@ -24,7 +28,6 @@ pip 8.1.2 from c:\python27\lib\site-packages (python 2.7)
 # Work with Zookeeper
 ### Start Zookeeper Server
 > docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 --name zookeeper confluent/zookeeper
-
 ```
 >>==首次执行时：==<<
 Unable to find image 'confluent/zookeeper:latest' locally
