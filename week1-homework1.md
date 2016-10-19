@@ -70,7 +70,7 @@ CONTAINER ID        IMAGE                 COMMAND                  CREATED      
 74f2770cd5e6        confluent/zookeeper   "/usr/local/bin/zk-do"   2 minutes ago       Up 2 minutes        0.0.0.0:2181->2181/tcp, 0.0.0.0:2888->2888/tcp, 0.0.0.0:3888->3888/tcp   zookeeper
 ```
 
-### Zookeeper CLI
+### Start Zookeeper CLI
 > $ cd zookeeper-3.4.9/bin
 > $ ./zkCli.sh -server  \`docker-machine ip bigdata`:2181
 ```
@@ -101,16 +101,17 @@ WATCHER::
 >
 WatchedEvent state:SyncConnected type:None path:null
 ```
-#### Browse Znode Data
->> [zk: 192.168.99.100:2181(CONNECTED) 0] ls /
+
+### Browse Znode Data
+> [zk: 192.168.99.100:2181(CONNECTED) 0] ls /
 ```
 [zookeeper]
 ```
->> [zk: 192.168.99.100:2181(CONNECTED) 1] ls /zookeeper
+> [zk: 192.168.99.100:2181(CONNECTED) 1] ls /zookeeper
 ```
 [quota]
 ```
->> [zk: 192.168.99.100:2181(CONNECTED) 2] get /zookeeper/quota
+> [zk: 192.168.99.100:2181(CONNECTED) 2] get /zookeeper/quota
 ```
 cZxid = 0x0
 ctime = Thu Jan 01 08:00:00 CST 1970
@@ -125,3 +126,199 @@ dataLength = 0
 numChildren = 0
 ```
 
+### Create Znode Data
+> [zk: 192.168.99.100:2181(CONNECTED) 3] create /workers "bittiger"
+```
+Created /workers
+```
+> [zk: 192.168.99.100:2181(CONNECTED) 4] ls /
+```
+[zookeeper, workers]
+```
+> [zk: 192.168.99.100:2181(CONNECTED) 5] ls /workers
+```
+[]
+```
+> [zk: 192.168.99.100:2181(CONNECTED) 6] get /workers
+```
+bittiger
+cZxid = 0x2
+ctime = Wed Oct 19 17:20:02 CST 2016
+mZxid = 0x2
+mtime = Wed Oct 19 17:20:02 CST 2016
+pZxid = 0x2
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 8
+numChildren = 0
+```
+
+### Delete Znode Data
+> [zk: 192.168.99.100:2181(CONNECTED) 7] delete /workers
+> [zk: 192.168.99.100:2181(CONNECTED) 8] ls /
+```
+[zookeeper]
+```
+> [zk: 192.168.99.100:2181(CONNECTED) 9] ls /workers
+```
+Node does not exist: /workers
+```
+> [zk: 192.168.99.100:2181(CONNECTED) 10] get /workers
+```
+Node does not exist: /workers
+```
+
+### Create Ephemeral Znode Data
+> [zk: 192.168.99.100:2181(CONNECTED) 11] create -e /workers "unclebarney"
+```
+Created /workers
+```
+> [zk: 192.168.99.100:2181(CONNECTED) 12] ls /
+```
+[zookeeper, workers]
+```
+> [zk: 192.168.99.100:2181(CONNECTED) 13] ls /workers
+```
+[]
+```
+> [zk: 192.168.99.100:2181(CONNECTED) 14] get /workers
+```
+unclebarney
+cZxid = 0x4
+ctime = Wed Oct 19 17:23:03 CST 2016
+mZxid = 0x4
+mtime = Wed Oct 19 17:23:03 CST 2016
+pZxid = 0x4
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x157dc2a71b60000
+dataLength = 11
+numChildren = 0
+```
+
+### Watcher
+> [zk: 192.168.99.100:2181(CONNECTED) 15] get /workers true
+```
+unclebarney
+cZxid = 0x4
+ctime = Wed Oct 19 17:23:03 CST 2016
+mZxid = 0x4
+mtime = Wed Oct 19 17:23:03 CST 2016
+pZxid = 0x4
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x157dc2a71b60000
+dataLength = 11
+numChildren = 0
+```
+> [zk: 192.168.99.100:2181(CONNECTED) 19] quit
+```
+Quitting...
+>
+WATCHER::
+2016-10-19 17:28:10,710 [myid:] - INFO  [main:ZooKeeper@684] - Session: 0x157dc2a71b60000 closed
+>
+WatchedEvent state:SyncConnected type:NodeDeleted path:/workers
+```
+
+
+----------
+
+# Work with Kafka
+### Start kafka Server
+> $ docker run -d -p 9092:9092 -e KAFKA_ADVERTISED_HOST_NAME=\`docker-machine ip bigdata` -e KAFKA_ADVERTISED_PORT=9092 --name kafka --link zookeeper:zookeeper confluent/kafka
+> <br/> ``首次执行时：``
+```
+Unable to find image 'confluent/kafka:latest' locally
+latest: Pulling from confluent/kafka
+51f5c6a04d83: Already exists
+a3ed95caeb02: Already exists
+7004cfc6e122: Already exists
+aee1f2b2873f: Already exists
+3a68342c4011: Already exists
+6cbd71d4d1f4: Already exists
+a26b1ce3360b: Already exists
+55bdb2de3391: Already exists
+c14c55acf45f: Already exists
+be7e9723819a: Already exists
+ff3558a8d162: Already exists
+c73633913e48: Already exists
+abf0c05f5209: Already exists
+8e0153a3fe95: Already exists
+8476a7f4c120: Already exists
+ed5d8f66195d: Pull complete
+a13270395e60: Pull complete
+c8661c1d28fc: Pull complete
+13f86b2644be: Pull complete
+Digest: sha256:de7415d87302269211342bfe6f7b15fe25f157b55970b2307f325d09e173d357
+Status: Downloaded newer image for confluent/kafka:latest
+358c0e2343d733788f3a07ea0ac6d03bc384185449034c77a2dc4c862de84c27
+```
+> ``再次执行时：``
+```
+f22de4ef65b1fa3fe47b650d21109e21e70b6a2837929d7330a3b362ffa7013d
+```
+> $ docker images
+```
+REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
+hello-world             latest              c54a2cc56cbb        3 months ago        1.848 kB
+confluent/zookeeper     latest              4a1778ad1528        4 months ago        584.5 MB
+confluent/kafka         latest              2b9ba35e1775        4 months ago        584.5 MB
+unclebarney/chit-chat   latest              639e46d7a14a        8 months ago        31.86 MB
+```
+> $ docker ps
+```
+CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                                                                    NAMES
+f22de4ef65b1        confluent/kafka       "/usr/local/bin/kafka"   12 seconds ago      Up 12 seconds       0.0.0.0:9092->9092/tcp                                                   kafka
+74f2770cd5e6        confluent/zookeeper   "/usr/local/bin/zk-do"   44 minutes ago      Up 44 minutes       0.0.0.0:2181->2181/tcp, 0.0.0.0:2888->2888/tcp, 0.0.0.0:3888->3888/tcp   zookeeper
+```
+
+### Create Kafka Topic
+> $ ./kafka-topics.sh --create --zookeeper \`docker-machine ip bigdata` --replication-factor 1 --partitions 1 --topic bigdata
+```
+Created topic "bigdata".
+```
+> $ ./kafka-topics.sh --list --zookeeper \`docker-machine ip bigdata`
+```
+bigdata
+```
+
+### Look up on Zookeeper
+> ./zkCli.sh -server \`docker-machine ip bigdata`:2181
+> [zk: 192.168.99.100:2181(CONNECTED) 0] ls /
+```
+[controller, controller_epoch, brokers, zookeeper, admin, isr_change_notification, consumers, config]
+```
+
+### Produce Messages
+> ./kafka-console-producer.sh --broker-list \`docker-machine ip bigdata`:9092 --topic bigdata
+> <br/>``以下是输入的内容``
+```
+this line is produced before starting consumer
+this line is produced after starting consumer
+this line is produced after stopping consumer
+```
+
+### Consume Messages
+> ./kafka-console-consumers.sh --zookeeper \`docker-machine ip bigdata`:2181 --topic bigdata
+```
+this line is produced after starting consumer
+```
+> ./kafka-console-consumers.sh --zookeeper \`docker-machine ip bigdata`:2181 --topic bigdata --from-beginning
+```
+this line is produced before starting consumer
+this line is produced after starting consumer
+this line is produced after stopping consumer
+```
+
+### Look into Kafka Broker
+> $ docker exec -it kafka bash
+> confluent@f22de4ef65b1:/$ cd /var/lib/kafka
+> confluent@f22de4ef65b1:/var/lib/kafka$ ls
+```
+bigdata-0  cleaner-offset-checkpoint  meta.properties  recovery-point-offset-checkpoint  replication-offset-checkpoint
+```
