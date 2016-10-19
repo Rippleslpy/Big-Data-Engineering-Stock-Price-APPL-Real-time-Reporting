@@ -15,8 +15,7 @@ Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256m; sup
 Python 2.7.10
 ```
 > $ pip --version
-```
-pip 8.1.2 from c:\python27\lib\site-packages (python 2.7)
+```pip 8.1.2 from c:\python27\lib\site-packages (python 2.7)
 ```
 
 ----------
@@ -26,8 +25,7 @@ pip 8.1.2 from c:\python27\lib\site-packages (python 2.7)
 > $ docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 --name zookeeper confluent/zookeeper
 > <br/> ``首次执行时：``
 ```
-Unable to find image 'confluent/zookeeper:latest' locally
-latest: Pulling from confluent/zookeeper
+Unable to find image 'confluent/zookeeper:latest' locallylatest: Pulling from confluent/zookeeper
 51f5c6a04d83: Pull complete
 a3ed95caeb02: Pull complete
 7004cfc6e122: Pull complete
@@ -37,8 +35,7 @@ aee1f2b2873f: Pull complete
 a26b1ce3360b: Pull complete
 55bdb2de3391: Pull complete
 c14c55acf45f: Pull complete
-be7e9723819a: Pull complete
-ff3558a8d162: Pull complete
+be7e9723819a: Pull completeff3558a8d162: Pull complete
 c73633913e48: Pull complete
 abf0c05f5209: Pull complete
 8e0153a3fe95: Pull complete
@@ -48,8 +45,7 @@ dd7b7029d4f9: Pull complete
 82153f3e2e3f: Pull complete
 1b403d9fce92: Pull complete
 b5c575c9edb6: Pull complete
-Digest: sha256:bb097bce322f5553ed1511234f97e7eedb0900211c46958357fbcb342917cbf8
-Status: Downloaded newer image for confluent/zookeeper:latest
+Digest: sha256:bb097bce322f5553ed1511234f97e7eedb0900211c46958357fbcb342917cbf8Status: Downloaded newer image for confluent/zookeeper:latest
 b25ff1e39f749b60827da47968c8a43c3343943f871d5e1a63eb489aed09c501
 ```
 > ``再次执行时：``
@@ -59,8 +55,7 @@ b25ff1e39f749b60827da47968c8a43c3343943f871d5e1a63eb489aed09c501
 > $docker images
 ```
 REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
-hello-world             latest              c54a2cc56cbb        3 months ago        1.848 kB
-confluent/zookeeper     latest              4a1778ad1528        4 months ago        584.5 MB
+hello-world             latest              c54a2cc56cbb        3 months ago        1.848 kBconfluent/zookeeper     latest              4a1778ad1528        4 months ago        584.5 MB
 confluent/kafka         latest              2b9ba35e1775        4 months ago        584.5 MB
 unclebarney/chit-chat   latest              639e46d7a14a        8 months ago        31.86 MB
 ```
@@ -70,8 +65,7 @@ CONTAINER ID        IMAGE                 COMMAND                  CREATED      
 74f2770cd5e6        confluent/zookeeper   "/usr/local/bin/zk-do"   2 minutes ago       Up 2 minutes        0.0.0.0:2181->2181/tcp, 0.0.0.0:2888->2888/tcp, 0.0.0.0:3888->3888/tcp   zookeeper
 ```
 
-### Zookeeper CLI
-> $ cd zookeeper-3.4.9/bin
+### Zookeeper CLI> $ cd zookeeper-3.4.9/bin
 > $ ./zkCli.sh -server  \`docker-machine ip bigdata`:2181
 ```
 Connecting to 192.168.99.100:2181
@@ -96,9 +90,9 @@ Welcome to ZooKeeper!
 2016-10-19 17:16:10,504 [myid:] - INFO  [main-SendThread(192.168.99.100:2181):ClientCnxn$SendThread@876] - Socket connection established to 192.168.99.100/192.168.99.100:2181, initiating session
 JLine support is enabled
 [zk: 192.168.99.100:2181(CONNECTING) 0] 2016-10-19 17:16:10,551 [myid:] - INFO  [main-SendThread(192.168.99.100:2181):ClientCnxn$SendThread@1299] - Session establishment complete on server 192.168.99.100/192.168.99.100:2181, sessionid = 0x157dc2a71b60000, negotiated timeout = 30000
-<br>
+>
 WATCHER::
-<br/>
+>
 WatchedEvent state:SyncConnected type:None path:null
 ```
 ### Browse Znode Data
