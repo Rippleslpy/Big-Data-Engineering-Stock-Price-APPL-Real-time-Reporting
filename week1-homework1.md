@@ -304,11 +304,11 @@ this line is produced after stopping consumer
 ```
 
 ### Consume Messages
-> $ ./kafka-console-consumers.sh --zookeeper \`docker-machine ip bigdata`:2181 --topic bigdata
+> $ ./kafka-console-consumer.sh --zookeeper \`docker-machine ip bigdata`:2181 --topic bigdata
 ```
 this line is produced after starting consumer
 ```
-> $ ./kafka-console-consumers.sh --zookeeper \`docker-machine ip bigdata`:2181 --topic bigdata --from-beginning
+> $ ./kafka-console-consumer.sh --zookeeper \`docker-machine ip bigdata`:2181 --topic bigdata --from-beginning
 ```
 this line is produced before starting consumer
 this line is produced after starting consumer
