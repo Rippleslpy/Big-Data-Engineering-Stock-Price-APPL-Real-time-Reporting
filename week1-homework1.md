@@ -230,7 +230,7 @@ WatchedEvent state:SyncConnected type:NodeDeleted path:/workers
 
 # Work with Kafka
 ### Start kafka Server
-> $ docker run -d -p 9092:9092 -e KAFKA_ADVERTISED_HOST_NAME=\`docker-machine ip bigdata` -e KAFKA_ADVERTISED_PORT=9092 --name kafka --link zookeeper:zookeeper confluent/kafka
+> $ docker run -d -p 9092:9092 -e KAFKA_ADVERTISED_HOST_NAME=\`docker-machine ip bigdata\` -e KAFKA_ADVERTISED_PORT=9092 --name kafka --link zookeeper:zookeeper confluent/kafka
 > <br/> ``首次执行时：``
 ```
 Unable to find image 'confluent/kafka:latest' locally
