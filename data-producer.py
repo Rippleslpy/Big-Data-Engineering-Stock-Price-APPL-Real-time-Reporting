@@ -16,11 +16,6 @@ from  flask import(
 )
 
 
-
-
-
-
-
 logger_format='%(asctime)-15s %(message)s'
 logging.basicConfig(format=logger_format)
 logger=logging.getLogger('data-producer')
