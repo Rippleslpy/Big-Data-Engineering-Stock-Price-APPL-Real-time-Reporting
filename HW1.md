@@ -7,4 +7,4 @@
   the result is
   
   > NAME      ACTIVE   DRIVER       STATE     URL   SWARM   DOCKER    ERRORS
-  bigdata   -        virtualbox   Stopped                 Unknown
+  > bigdata   -        virtualbox   Stopped                 Unknown
