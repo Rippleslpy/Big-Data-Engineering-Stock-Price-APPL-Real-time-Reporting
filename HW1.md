@@ -5,10 +5,11 @@
   `docker-machine ls`
   
   shows
+  ```
+  NAME      ACTIVE   DRIVER       STATE     URL   SWARM   DOCKER    ERRORS
   
-  > NAME      ACTIVE   DRIVER       STATE     URL   SWARM   DOCKER    ERRORS
-  
-  > bigdata   -        virtualbox   Stopped                 Unknown
+  bigdata   -        virtualbox   Stopped                 Unknown
+  ```
   
 - Start the `bigdata` docker-machine
 
