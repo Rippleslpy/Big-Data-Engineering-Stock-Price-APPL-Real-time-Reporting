@@ -34,5 +34,12 @@
   ```
   192.168.99.100
   ```
+
+- Create an isolated environment for the `bigdata` docker-machine by
+  ```
+  eval $(docker-machine env bigdata)
+  ```
+  shows
+  ```
   
-  
+  ```
