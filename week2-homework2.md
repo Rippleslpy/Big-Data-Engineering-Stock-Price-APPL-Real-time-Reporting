@@ -83,9 +83,9 @@ CREATE TABLE stock.user (
  count
 -------
      1
- 
+ <br/>
 (1 rows)
- 
+ <br/>
 Warnings :
 Aggregation query used without partition key
 ```
