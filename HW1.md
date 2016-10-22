@@ -4,7 +4,7 @@
   
   `docker-machine ls`
   
-  the result is
+  shows
   
   > NAME      ACTIVE   DRIVER       STATE     URL   SWARM   DOCKER    ERRORS
   
@@ -13,6 +13,7 @@
 - Start the `bigdata` docker-machine
 
   `docker-machine start bigdata`
+  
   shows
   > Starting "bigdata"...
   > (bigdata) Check network to re-create if needed...
