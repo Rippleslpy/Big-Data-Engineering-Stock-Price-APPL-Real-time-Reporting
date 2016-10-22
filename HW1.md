@@ -46,7 +46,7 @@
 
 - List all images in the `bigdata` docker-machine by
   ```
-  docker images
+  docker images -a
   ```
   shows
   ```
@@ -57,11 +57,13 @@
 
 - List all containers in the `bigdata` docker-machine by
   ```
-  docker ps
+  docker ps -a
   ```
   shows
   ```
-  CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+  CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS                  PORTS             NAMES
+  524db896b63c        confluent/kafka       "/usr/local/bin/kafka"   3 days ago          Exited (0) 2 days ago                     kafka
+  a66bee8c4bd1        confluent/zookeeper   "/usr/local/bin/zk-do"   3 days ago          Exited (0) 2 days ago                 zookeeper
   ```
 
 - Check environments by
