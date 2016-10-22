@@ -83,9 +83,9 @@ CREATE TABLE stock.user (
  count
 -------
      1
- <br/>
+>
 (1 rows)
- <br/>
+>
 Warnings :
 Aggregation query used without partition key
 ```
@@ -94,7 +94,7 @@ Aggregation query used without partition key
  first_name | last_name
 ------------+-----------
       uncle |    barney
-<br/>
+>
 (1 rows)
 ```
 > cqlsh:stock> SELECT * FROM user WHERE last_name='barney';
@@ -120,7 +120,7 @@ commitlog  data  hints  saved_caches
   first_name | last_name
 -------------+-----------
        uncle |      null
-<br/>
+>
 (1 rows)
 ```
 > cqlsh:stock> DELETE FROM user WHERE first_name='uncle'; <br/>
@@ -128,7 +128,7 @@ commitlog  data  hints  saved_caches
 ```
  first_name | last_name
 ------------+-----------
-<br/>
+>
 (0 rows)
 ```
 
