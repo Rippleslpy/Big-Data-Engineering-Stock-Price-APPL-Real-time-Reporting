@@ -43,3 +43,24 @@
   ```
   
   ```
+
+- List all images in the `bigdata` docker-machine by
+  ```
+  docker images
+  ```
+  shows
+  ```
+  REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
+  confluent/zookeeper   latest              4a1778ad1528        4 months ago        584.5 MB
+  confluent/kafka       latest              2b9ba35e1775        4 months ago        584.5 MB
+  ```
+
+- List all containers in the `bigdata` docker-machine by
+  ```
+  docker ps
+  ```
+  shows
+  ```
+  CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+  ```
+
