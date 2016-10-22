@@ -1,3 +1,4 @@
+# Play with Apache Cassandra
 ## Start Cassandra Server
 > $ docker run -d -p 7199:7199 -p 9042:9042 -p 9160:9160 -p 7001:7001 --name cassandra cassandra:3.7
 ```
@@ -33,7 +34,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ```
 
 ## Start Cassandra CLI
-> $ cd cassandra/bin
+> $ cd cassandra/bin<br/>
 > $ ./cqlsh \`docker-machine ip bigdata\` 9042
 ```
 Connected to Test Cluster at 192.168.99.100:9042.
@@ -44,14 +45,14 @@ cqlsh>
 
 ## Create Keyspace
 > cqlsh> CREATE KEYSPACE "stock" WITH replication = {'class':'SimpleStrategy','replication_factor':1} AND durable_writes = 'true';
-> cqlsh> USE stock;
+> cqlsh> USE stock;<br/>
 > cqlsh:stock> DESCRIBE KEYSPACE;
 ```
 CREATE KEYSPACE stock WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'}  AND durable_writes = true;
 ```
 
 ## Create Table
-> cqlsh:stock> CREATE TABLE user (first_name text, last_name text, PRIMARY KEY (first_name));
+> cqlsh:stock> CREATE TABLE user (first_name text, last_name text, PRIMARY KEY (first_name));<br/>
 > cqlsh:stock> DESCRIBE TABLE user;
 ```
 CREATE TABLE stock.user (
@@ -82,9 +83,9 @@ CREATE TABLE stock.user (
  count
 -------
      1
-
+<br/>
 (1 rows)
-
+<br/>
 Warnings :
 Aggregation query used without partition key
 ```
@@ -93,7 +94,7 @@ Aggregation query used without partition key
  first_name | last_name
 ------------+-----------
       uncle |    barney
-
+<br/>
 (1 rows)
 ```
 > cqlsh:stock> SELECT * FROM user WHERE last_name='barney';
@@ -106,34 +107,34 @@ InvalidRequest: code=2200 [Invalid query] message="Cannot execute this query as 
 ```
 root@9f1286f798e9:/#
 ```
-> root@9f1286f798e9:/# cd /var/lib/cassandra/
+> root@9f1286f798e9:/# cd /var/lib/cassandra/ <br/>
 > root@9f1286f798e9:/var/lib/cassandra# ls
 ```
 commitlog  data  hints  saved_caches
 ```
 
 ## Delete Data
-> cqlsh:stock> DELETE last_name FROM user WHERE first_name='uncle';
+> cqlsh:stock> DELETE last_name FROM user WHERE first_name='uncle'; <br/>
 > cqlsh:stock> select * from user;
 ```
-irst_name | last_name
-------------+-----------
-      uncle |      null
-
+ first_name | last_name
+-------------+-----------
+       uncle |      null
+<br/>
 (1 rows)
 ```
-> cqlsh:stock> DELETE FROM user WHERE first_name='uncle';
+> cqlsh:stock> DELETE FROM user WHERE first_name='uncle'; <br/>
 > cqlsh:stock> select * from user;
 ```
  first_name | last_name
 ------------+-----------
-
+<br/>
 (0 rows)
 ```
 
 ## Remove Table
-> cqlsh:stock> TRUNCATE user;
-> cqlsh:stock> DROP TABLE user;
+> cqlsh:stock> TRUNCATE user;<br/>
+> cqlsh:stock> DROP TABLE user;<br/>
 > DESC TABLES;
 ```
 <empty>
