@@ -176,6 +176,30 @@ numChildren = 0
 Created /workers
 ```
 [zk: 192.168.99.100:2181(CONNECTED) 4] ls/
+```
+ZooKeeper -server host:port cmd args
+	stat path [watch]
+	set path data [version]
+	ls path [watch]
+	delquota [-n|-b] path
+	ls2 path [watch]
+	setAcl path acl
+	setquota -n|-b val path
+	history
+	redo cmdno
+	printwatches on|off
+	delete path [version]
+	sync path
+	listquota path
+	rmr path
+	get path [watch]
+	create [-s] [-e] path data acl
+	addauth scheme auth
+	quit
+	getAcl path
+	close
+	connect host:port
+```
 [zk: 192.168.99.100:2181(CONNECTED) 5] ls /workers
 ```
 []
@@ -197,9 +221,31 @@ numChildren = 0
 ```
 Delete znode:
 [zk: 192.168.99.100:2181(CONNECTED) 7] delete /workers
-[zk: 192.168.99.100:2181(CONNECTED) 8] ls
 [zk: 192.168.99.100:2181(CONNECTED) 9] ls/
-[zk: 192.168.99.100:2181(CONNECTED) 10] ls/
+```
+ZooKeeper -server host:port cmd args
+	stat path [watch]
+	set path data [version]
+	ls path [watch]
+	delquota [-n|-b] path
+	ls2 path [watch]
+	setAcl path acl
+	setquota -n|-b val path
+	history
+	redo cmdno
+	printwatches on|off
+	delete path [version]
+	sync path
+	listquota path
+	rmr path
+	get path [watch]
+	create [-s] [-e] path data acl
+	addauth scheme auth
+	quit
+	getAcl path
+	close
+	connect host:port
+```
 [zk: 192.168.99.100:2181(CONNECTED) 11] ls /workers
 ```
 Node does not exist: /workers
@@ -211,6 +257,30 @@ Create ephemeral znode
 Created /workers
 ```
 [zk: 192.168.99.100:2181(CONNECTED) 13] ls/
+```
+ZooKeeper -server host:port cmd args
+	stat path [watch]
+	set path data [version]
+	ls path [watch]
+	delquota [-n|-b] path
+	ls2 path [watch]
+	setAcl path acl
+	setquota -n|-b val path
+	history
+	redo cmdno
+	printwatches on|off
+	delete path [version]
+	sync path
+	listquota path
+	rmr path
+	get path [watch]
+	create [-s] [-e] path data acl
+	addauth scheme auth
+	quit
+	getAcl path
+	close
+	connect host:port
+```
 [zk: 192.168.99.100:2181(CONNECTED) 14] ls /workers
 ```
 []
