@@ -44,7 +44,7 @@ cqlsh>
 ```
 
 ## Create Keyspace
-> cqlsh> CREATE KEYSPACE "stock" WITH replication = {'class':'SimpleStrategy','replication_factor':1} AND durable_writes = 'true';
+> cqlsh> CREATE KEYSPACE "stock" WITH replication = {'class':'SimpleStrategy','replication_factor':1} AND durable_writes = 'true'; <br/>
 > cqlsh> USE stock;<br/>
 > cqlsh:stock> DESCRIBE KEYSPACE;
 ```
@@ -83,9 +83,9 @@ CREATE TABLE stock.user (
  count
 -------
      1
-<br/>
+ 
 (1 rows)
-<br/>
+ 
 Warnings :
 Aggregation query used without partition key
 ```
@@ -117,7 +117,7 @@ commitlog  data  hints  saved_caches
 > cqlsh:stock> DELETE last_name FROM user WHERE first_name='uncle'; <br/>
 > cqlsh:stock> select * from user;
 ```
- first_name | last_name
+  first_name | last_name
 -------------+-----------
        uncle |      null
 <br/>
