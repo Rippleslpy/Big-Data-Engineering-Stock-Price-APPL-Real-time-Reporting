@@ -83,7 +83,9 @@
   ```
 
 - List the current `docker-machine` information by
+  
   `docker info`
+  
   shows
   ```
   ontainers: 2
