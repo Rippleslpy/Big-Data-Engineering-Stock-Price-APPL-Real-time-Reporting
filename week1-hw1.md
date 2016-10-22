@@ -92,9 +92,6 @@ unclebarney/chit-chat   latest              639e46d7a14a        8 months ago    
 ```
 Now I have all 4 containers installed on my mac
 
-
-
-
 ## get CLIs
 
 $ wget http://apache.mirrors.ionfish.org/kafka/0.10.0.1/kafka_2.11-0.10.0.1.tgz
@@ -120,6 +117,13 @@ $ rm zookeeper-3.4.8.tar.gz
 $ ./kafka-console-producer.sh --broker-list `docker-machine ip bigdata`:9092 --topic bigdata
 ```
 bigdata
+```
+Look into broker
+$ docker exec -it kafka bash
+confluent@5283af370c57:/$ cd /var/lib/kafka
+confluent@5283af370c57:/var/lib/kafka$ ls
+```
+bigdata-0  cleaner-offset-checkpoint  meta.properties  recovery-point-offset-checkpoint  replication-offset-checkpoint
 ```
 
 $ cd zookeeper/bin
