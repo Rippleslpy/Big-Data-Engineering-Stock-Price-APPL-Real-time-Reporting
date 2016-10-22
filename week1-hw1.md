@@ -92,7 +92,155 @@ unclebarney/chit-chat   latest              639e46d7a14a        8 months ago    
 ```
 Now I have all 4 containers installed on my mac
 
-## Play with Kafka
 
 
-## Play with Zookeeper
+
+## get CLIs
+
+$ wget http://apache.mirrors.ionfish.org/kafka/0.10.0.1/kafka_2.11-0.10.0.1.tgz
+$ tar xvf kafka_2.11-0.10.0.1.tgz
+$ mv kafka_2.11-0.10.0.1 kafka
+$ rm kafka_2.11-0.10.0.1.tgz
+$ cd kafka/bin
+
+$ ./kafka-topics.sh --create --zookeeper `docker-machine ip bigdata` --replication-factor 1 --partitions 1 --topic bigdata
+```
+Created topic "bigdata".
+```
+$ ./kafka-topics.sh --list --zookeeper `docker-machine ip bigdata`
+```
+bigdata
+```
+$ wget http://apache.mirrors.ionfish.org/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz
+$ tar xvf zookeeper-3.4.8.tar.gz
+$ mv zookeeper-3.4.8 zookeeper
+$ rm zookeeper-3.4.8.tar.gz
+
+## Play with Kafka & Zookeeper
+$ ./kafka-console-producer.sh --broker-list `docker-machine ip bigdata`:9092 --topic bigdata
+```
+bigdata
+```
+
+$ cd zookeeper/bin
+$ ./zkCli.sh -server `docker-machine ip bigdata`:2181
+$ ls/
+```
+ZooKeeper -server host:port cmd args
+	stat path [watch]
+	set path data [version]
+	ls path [watch]
+	delquota [-n|-b] path
+	ls2 path [watch]
+	setAcl path acl
+	setquota -n|-b val path
+	history
+	redo cmdno
+	printwatches on|off
+	delete path [version]
+	sync path
+	listquota path
+	rmr path
+	get path [watch]
+	create [-s] [-e] path data acl
+	addauth scheme auth
+	quit
+	getAcl path
+	close
+	connect host:port
+```
+
+$ ls/
+$ ls /zookeeper
+[zk: 192.168.99.100:2181(CONNECTED) 2] get /zookeeper/quota
+```
+cZxid = 0x0
+ctime = Wed Dec 31 18:00:00 CST 1969
+mZxid = 0x0
+mtime = Wed Dec 31 18:00:00 CST 1969
+pZxid = 0x0
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 0
+numChildren = 0
+```
+
+[zk: 192.168.99.100:2181(CONNECTED) 3] create /workers "bittiger"
+```
+Created /workers
+```
+[zk: 192.168.99.100:2181(CONNECTED) 4] ls/
+[zk: 192.168.99.100:2181(CONNECTED) 5] ls /workers
+```
+[]
+```
+[zk: 192.168.99.100:2181(CONNECTED) 6] get /workers
+```
+bittiger
+cZxid = 0x32
+ctime = Fri Oct 21 21:20:11 CDT 2016
+mZxid = 0x32
+mtime = Fri Oct 21 21:20:11 CDT 2016
+pZxid = 0x32
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 8
+numChildren = 0
+```
+Delete znode:
+[zk: 192.168.99.100:2181(CONNECTED) 7] delete /workers
+[zk: 192.168.99.100:2181(CONNECTED) 8] ls
+[zk: 192.168.99.100:2181(CONNECTED) 9] ls/
+[zk: 192.168.99.100:2181(CONNECTED) 10] ls/
+[zk: 192.168.99.100:2181(CONNECTED) 11] ls /workers
+```
+Node does not exist: /workers
+```
+
+Create ephemeral znode
+[zk: 192.168.99.100:2181(CONNECTED) 12] create -e /workers "unclebarney"
+```
+Created /workers
+```
+[zk: 192.168.99.100:2181(CONNECTED) 13] ls/
+[zk: 192.168.99.100:2181(CONNECTED) 14] ls /workers
+```
+[]
+```
+[zk: 192.168.99.100:2181(CONNECTED) 15] get /workers
+```
+unclebarney
+cZxid = 0x34
+ctime = Fri Oct 21 21:23:40 CDT 2016
+mZxid = 0x34
+mtime = Fri Oct 21 21:23:40 CDT 2016
+pZxid = 0x34
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x157e9af3f4d0006
+dataLength = 11
+numChildren = 0
+```
+
+Watcher
+
+[zk: 192.168.99.100:2181(CONNECTED) 16] get /workers true
+```
+unclebarney
+cZxid = 0x34
+ctime = Fri Oct 21 21:23:40 CDT 2016
+mZxid = 0x34
+mtime = Fri Oct 21 21:23:40 CDT 2016
+pZxid = 0x34
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x157e9af3f4d0006
+dataLength = 11
+numChildren = 0
+```
