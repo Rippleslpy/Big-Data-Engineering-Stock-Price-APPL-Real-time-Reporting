@@ -72,3 +72,59 @@
   - `python --version` shows `Python 2.7.12`
   - `pip --version` shows `pip 8.1.2 from /usr/local/lib/python2.7/site-packages (python 2.7)`
 
+- Start the existing `Zookeeper` and `Kafka` containers by
+  ```
+  docker start a66bee8c4bd1 524db896b63c
+  ```
+  shows
+  ```
+  a66bee8c4bd1
+  524db896b63c
+  ```
+
+- List the current `docker-machine` information by
+  `docker info`
+  shows
+  ```
+  ontainers: 2
+ Running: 2
+ Paused: 0
+ Stopped: 0
+Images: 2
+Server Version: 1.12.2
+Storage Driver: aufs
+ Root Dir: /mnt/sda1/var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 33
+ Dirperm1 Supported: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins:
+ Volume: local
+ Network: null bridge host overlay
+Swarm: inactive
+Runtimes: runc
+Default Runtime: runc
+Security Options: seccomp
+Kernel Version: 4.4.24-boot2docker
+Operating System: Boot2Docker 1.12.2 (TCL 7.2); HEAD : 9d8e41b - Tue Oct 11 23:40:08 UTC 2016
+OSType: linux
+Architecture: x86_64
+CPUs: 2
+Total Memory: 1.955 GiB
+Name: bigdata
+ID: H4M6:EIYG:VJ7A:FLV5:CZZN:VOQA:CBWT:C34E:4W5F:7M6C:SDR4:66JM
+Docker Root Dir: /mnt/sda1/var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): true
+ File Descriptors: 22
+ Goroutines: 36
+ System Time: 2016-10-22T01:41:43.513176376Z
+ EventsListeners: 0
+Username: vincentdocker
+Registry: https://index.docker.io/v1/
+Labels:
+ provider=virtualbox
+Insecure Registries:
+ 127.0.0.0/8
+ ```
