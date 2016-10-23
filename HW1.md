@@ -142,8 +142,49 @@ Insecure Registries:
   cd Documents/Zookeeper/zookeeper-3.4.8/bin
   ```
   
-- 
+- Connect with the Zookeeper on the docker-machine by
+  ```
+  ./zkCli.sh -server `docker-machine ip bigdata`:2181
+  ```
+  shows
+  ```
+  onnecting to 192.168.99.100:2181
+2016-10-23 16:20:07,279 [myid:] - INFO  [main:Environment@100] - Client environment:zookeeper.version=3.4.8--1, built on 02/06/2016 03:18 GMT
+2016-10-23 16:20:07,286 [myid:] - INFO  [main:Environment@100] - Client environment:host.name=yangs-mbp-3.home
+2016-10-23 16:20:07,287 [myid:] - INFO  [main:Environment@100] - Client environment:java.version=1.8.0_45
+2016-10-23 16:20:07,290 [myid:] - INFO  [main:Environment@100] - Client environment:java.vendor=Oracle Corporation
+2016-10-23 16:20:07,290 [myid:] - INFO  [main:Environment@100] - Client environment:java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre
+2016-10-23 16:20:07,291 [myid:] - INFO  [main:Environment@100] - Client environment:java.class.path=/Users/yang/Documents/Zookeeper/zookeeper-3.4.8/bin/../build/classes:/Users/yang/Documents/Zookeeper/zookeeper-3.4.8/bin/../build/lib/*.jar:/Users/yang/Documents/Zookeeper/zookeeper-3.4.8/bin/../lib/slf4j-log4j12-1.6.1.jar:/Users/yang/Documents/Zookeeper/zookeeper-3.4.8/bin/../lib/slf4j-api-1.6.1.jar:/Users/yang/Documents/Zookeeper/zookeeper-3.4.8/bin/../lib/netty-3.7.0.Final.jar:/Users/yang/Documents/Zookeeper/zookeeper-3.4.8/bin/../lib/log4j-1.2.16.jar:/Users/yang/Documents/Zookeeper/zookeeper-3.4.8/bin/../lib/jline-0.9.94.jar:/Users/yang/Documents/Zookeeper/zookeeper-3.4.8/bin/../zookeeper-3.4.8.jar:/Users/yang/Documents/Zookeeper/zookeeper-3.4.8/bin/../src/java/lib/*.jar:/Users/yang/Documents/Zookeeper/zookeeper-3.4.8/bin/../conf:
+2016-10-23 16:20:07,291 [myid:] - INFO  [main:Environment@100] - Client environment:java.library.path=/Users/yang/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+2016-10-23 16:20:07,291 [myid:] - INFO  [main:Environment@100] - Client environment:java.io.tmpdir=/var/folders/8v/9_5lvzpd7vsfmvpq89vds7b80000gn/T/
+2016-10-23 16:20:07,291 [myid:] - INFO  [main:Environment@100] - Client environment:java.compiler=<NA>
+2016-10-23 16:20:07,291 [myid:] - INFO  [main:Environment@100] - Client environment:os.name=Mac OS X
+2016-10-23 16:20:07,291 [myid:] - INFO  [main:Environment@100] - Client environment:os.arch=x86_64
+2016-10-23 16:20:07,291 [myid:] - INFO  [main:Environment@100] - Client environment:os.version=10.11.6
+2016-10-23 16:20:07,291 [myid:] - INFO  [main:Environment@100] - Client environment:user.name=yang
+2016-10-23 16:20:07,292 [myid:] - INFO  [main:Environment@100] - Client environment:user.home=/Users/yang
+2016-10-23 16:20:07,292 [myid:] - INFO  [main:Environment@100] - Client environment:user.dir=/Users/yang/Documents/Zookeeper/zookeeper-3.4.8/bin
+2016-10-23 16:20:07,293 [myid:] - INFO  [main:ZooKeeper@438] - Initiating client connection, connectString=192.168.99.100:2181 sessionTimeout=30000 watcher=org.apache.zookeeper.ZooKeeperMain$MyWatcher@69d0a921
+Welcome to ZooKeeper!
+2016-10-23 16:20:07,362 [myid:] - INFO  [main-SendThread(192.168.99.100:2181):ClientCnxn$SendThread@1032] - Opening socket connection to server 192.168.99.100/192.168.99.100:2181. Will not attempt to authenticate using SASL (unknown error)
+JLine support is enabled
+2016-10-23 16:20:07,484 [myid:] - INFO  [main-SendThread(192.168.99.100:2181):ClientCnxn$SendThread@876] - Socket connection established to 192.168.99.100/192.168.99.100:2181, initiating session
+2016-10-23 16:20:07,499 [myid:] - INFO  [main-SendThread(192.168.99.100:2181):ClientCnxn$SendThread@1299] - Session establishment complete on server 192.168.99.100/192.168.99.100:2181, sessionid = 0x157ea0c38cd0006, negotiated timeout = 30000
 
+WATCHER::
+
+WatchedEvent state:SyncConnected type:None path:null
+[zk: 192.168.99.100:2181(CONNECTED) 0]
+```
+
+- Check contains by
+  ```
+  ls /
+  ```
+  shows
+  ```
+  controller_epoch, controller, brokers, zookeeper, admin, isr_change_notification, consumers, config]
+  ```
 
 ### Operations on Kafka
 -----
