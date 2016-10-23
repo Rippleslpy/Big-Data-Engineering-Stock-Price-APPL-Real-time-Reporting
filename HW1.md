@@ -368,3 +368,30 @@ stock-analyzer
   This is the 1st test message.
 This is the 2nd test message.
   ```
+
+- Look into Kafka broker by
+  ```
+  docker exec -it kafka bash
+  ```
+  shows
+  ```
+  confluent@524db896b63c:
+  ```
+  use `cd /var/lib/kafka/ ls` and `ls` shows
+  ```
+  __consumer_offsets-0   __consumer_offsets-22  __consumer_offsets-36  __consumer_offsets-5
+__consumer_offsets-1   __consumer_offsets-23  __consumer_offsets-37  __consumer_offsets-6
+__consumer_offsets-10  __consumer_offsets-24  __consumer_offsets-38  __consumer_offsets-7
+__consumer_offsets-11  __consumer_offsets-25  __consumer_offsets-39  __consumer_offsets-8
+__consumer_offsets-12  __consumer_offsets-26  __consumer_offsets-4   __consumer_offsets-9
+__consumer_offsets-13  __consumer_offsets-27  __consumer_offsets-40  bigdata-0
+__consumer_offsets-14  __consumer_offsets-28  __consumer_offsets-41  bigdata2-0
+__consumer_offsets-15  __consumer_offsets-29  __consumer_offsets-42  cleaner-offset-checkpoint
+__consumer_offsets-16  __consumer_offsets-3   __consumer_offsets-43  meta.properties
+__consumer_offsets-17  __consumer_offsets-30  __consumer_offsets-44  recovery-point-offset-checkpoint
+__consumer_offsets-18  __consumer_offsets-31  __consumer_offsets-45  replication-offset-checkpoint
+__consumer_offsets-19  __consumer_offsets-32  __consumer_offsets-46  stock-analyzer-0
+__consumer_offsets-2   __consumer_offsets-33  __consumer_offsets-47
+__consumer_offsets-20  __consumer_offsets-34  __consumer_offsets-48
+__consumer_offsets-21  __consumer_offsets-35  __consumer_offsets-49
+  ```
