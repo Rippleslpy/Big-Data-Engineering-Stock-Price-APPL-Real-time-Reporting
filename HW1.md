@@ -201,6 +201,34 @@ WatchedEvent state:SyncConnected type:None path:null
   numChildren = 0
   ```
 
+- Create Znode Data by `create /workers "bittiger"` shows
+  ```
+  reated /workers
+  ```
+  use `ls /` shows
+  ```
+  controller_epoch, controller, brokers, zookeeper, admin, isr_change_notification, consumers, config, workers]
+  ```
+  use `ls /workers` shows
+  ```
+  []
+  ```
+  use `get /workers` shows
+  ```
+  bittiger
+cZxid = 0x2c6
+ctime = Sun Oct 23 16:37:47 EDT 2016
+mZxid = 0x2c6
+mtime = Sun Oct 23 16:37:47 EDT 2016
+pZxid = 0x2c6
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 8
+numChildren = 0
+  ```
+
 ### Operations on Kafka
 -----
 
