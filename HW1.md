@@ -328,3 +328,11 @@ bigdata2
 stock-analyzer
   ```
 
+- Check topics on Zookeeper by
+  ```
+  ./zkCli.sh -server `docker-machine ip bigdata`:2181
+  ```
+  use `ls /` shows
+  ```
+  [controller_epoch, controller, brokers, zookeeper, admin, isr_change_notification, consumers, config]
+  ```
