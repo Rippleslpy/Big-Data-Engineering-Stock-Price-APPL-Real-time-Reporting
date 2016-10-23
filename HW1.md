@@ -133,3 +133,20 @@ Labels:
 Insecure Registries:
  127.0.0.0/8
  ```
+
+### Operations on Zookeeper
+-----
+- locate to the `bin` directory of Zookeeper by
+  ```
+  cd Documents/Zookeeper/zookeeper-3.4.8/bin
+  ```
+- 
+
+
+### Operations on Kafka
+-----
+- locate to the `bin` directory of Kafka by
+  ```
+  cd Documents/Kafka/kafka_2.11-0.10.0.1/bin
+  ```
+- 
