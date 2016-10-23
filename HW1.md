@@ -336,3 +336,35 @@ stock-analyzer
   ```
   [controller_epoch, controller, brokers, zookeeper, admin, isr_change_notification, consumers, config]
   ```
+
+- Create a topic called `bigdata` on Kafka by
+  ```
+  ./kafka-console-producer.sh --broker-list `docker-machine ip bigdata`:9092 --topic bigdata
+  ```
+  and the terminal is ready to take messages. Type the following message
+  ```
+  This is the 1st test message.
+  ```
+
+- Consumer the `bigdata` topic by
+  ```
+  ./kafka-console-consumer.sh --zookeeper `docker-machine ip bigdata`:2181 --topic bigdata
+  ```
+  shows
+  ```
+  This is the 1st message.
+  ```
+
+- Consumer the `bigdata` topic from the beginning by
+  ```
+  ./kafka-console-consumer.sh --zookeeper `docker-machine ip bigdata`:2181 --topic bigdata --from-beginning
+  ```
+  and type
+  ```
+  This is the 2nd message.
+  ```
+  in the topic terminal. The consumer terminal shows
+  ```
+  This is the 1st test message.
+This is the 2nd test message.
+  ```
