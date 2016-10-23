@@ -289,6 +289,17 @@ dataLength = 11
 numChildren = 0
   ```
 
+- Quit zookeeper by `quit` shows
+  ```
+  Quitting...
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:NodeDeleted path:/workers
+2016-10-23 16:52:30,651 [myid:] - INFO  [main:ZooKeeper@684] - Session: 0x157ea0c38cd0006 closed
+2016-10-23 16:52:30,653 [myid:] - INFO  [main-EventThread:ClientCnxn$EventThread@519] - EventThread shut down for session: 0x157ea0c38cd0006
+  ```
+
 ### Operations on Kafka
 -----
 
