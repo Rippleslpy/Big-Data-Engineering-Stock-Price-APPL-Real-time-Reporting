@@ -377,7 +377,7 @@ This is the 2nd test message.
   ```
   confluent@524db896b63c:
   ```
-  use `cd /var/lib/kafka/ ls` and `ls` shows
+  use `cd /var/lib/kafka/` and `ls` shows
   ```
   __consumer_offsets-0   __consumer_offsets-22  __consumer_offsets-36  __consumer_offsets-5
 __consumer_offsets-1   __consumer_offsets-23  __consumer_offsets-37  __consumer_offsets-6
