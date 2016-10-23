@@ -1,4 +1,7 @@
-### Homework 1
+# Homework 1
+
+### Set up Zookeeper and Kafka environment on docker-machine
+-----
 
 - List existing docker-machine by
   ```
