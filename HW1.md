@@ -136,7 +136,7 @@ Insecure Registries:
 
 ### Operations on Zookeeper
 -----
-- locate to the `bin` directory of Zookeeper by
+- Locate to the `bin` directory of Zookeeper by
   ```
   cd Documents/Zookeeper/zookeeper-3.4.8/bin
   ```
@@ -145,7 +145,7 @@ Insecure Registries:
 
 ### Operations on Kafka
 -----
-- locate to the `bin` directory of Kafka by
+- Locate to the `bin` directory of Kafka by
   ```
   cd Documents/Kafka/kafka_2.11-0.10.0.1/bin
   ```
