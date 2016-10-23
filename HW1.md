@@ -136,17 +136,21 @@ Insecure Registries:
 
 ### Operations on Zookeeper
 -----
+
 - Locate to the `bin` directory of Zookeeper by
   ```
   cd Documents/Zookeeper/zookeeper-3.4.8/bin
   ```
+  
 - 
 
 
 ### Operations on Kafka
 -----
+
 - Locate to the `bin` directory of Kafka by
   ```
   cd Documents/Kafka/kafka_2.11-0.10.0.1/bin
   ```
+  
 - 
