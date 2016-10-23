@@ -182,7 +182,24 @@ WatchedEvent state:SyncConnected type:None path:null
   ```
   controller_epoch, controller, brokers, zookeeper, admin, isr_change_notification, consumers, config]
   ```
-  use
+  use `ls /zookeeper` shows
+  ```
+  [quota]
+  ```
+  use `get /zookeeper/quota` shows
+  ```
+  cZxid = 0x0
+  ctime = Wed Dec 31 19:00:00 EST 1969
+  mZxid = 0x0
+  mtime = Wed Dec 31 19:00:00 EST 1969
+  pZxid = 0x0
+  cversion = 0
+  dataVersion = 0
+  aclVersion = 0
+  ephemeralOwner = 0x0
+  dataLength = 0
+  numChildren = 0
+  ```
 
 ### Operations on Kafka
 -----
