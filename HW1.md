@@ -308,4 +308,23 @@ WatchedEvent state:SyncConnected type:NodeDeleted path:/workers
   cd Documents/Kafka/kafka_2.11-0.10.0.1/bin
   ```
   
-- 
+- Create a topic called `bigdata2` by
+  ```
+  ./kafka-topics.sh --create --zookeeper `docker-machine ip bigdata` --replication-factor 1 --partitions 1 --topic bigdata2
+  ```
+  shows
+  ```
+  Created topic "bigdata2".
+  ```
+  check topics by
+  ```
+  ./kafka-topics.sh --list --zookeeper `docker-machine ip bigdata`
+  ```
+  shows
+  ```
+  __consumer_offsets
+bigdata
+bigdata2
+stock-analyzer
+  ```
+
