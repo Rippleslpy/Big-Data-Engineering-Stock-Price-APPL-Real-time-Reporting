@@ -245,6 +245,50 @@ numChildren = 0
   Node does not exist: /workers
   ```
 
+- Create Ephemeral Znode Data by `create -e /workers "yangcareers"` shows
+  ```
+  Created /workers
+  ```
+  use `ls /` shows
+  ```
+  [controller_epoch, controller, brokers, zookeeper, admin, isr_change_notification, consumers, config, work
+  ```
+  use `ls /workers` shows
+  ```
+  []
+  ```
+  use `get /workers` shows
+  ```
+  yangcareers
+cZxid = 0x2c8
+ctime = Sun Oct 23 16:44:55 EDT 2016
+mZxid = 0x2c8
+mtime = Sun Oct 23 16:44:55 EDT 2016
+pZxid = 0x2c8
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x157ea0c38cd0006
+dataLength = 11
+numChildren = 0
+  ```
+
+- Set up Watcher by `get /workers true` shows
+  ```
+  yangcareers
+cZxid = 0x2c8
+ctime = Sun Oct 23 16:44:55 EDT 2016
+mZxid = 0x2c8
+mtime = Sun Oct 23 16:44:55 EDT 2016
+pZxid = 0x2c8
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x157ea0c38cd0006
+dataLength = 11
+numChildren = 0
+  ```
+
 ### Operations on Kafka
 -----
 
