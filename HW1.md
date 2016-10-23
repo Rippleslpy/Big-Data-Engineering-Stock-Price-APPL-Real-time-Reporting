@@ -177,14 +177,12 @@ WatchedEvent state:SyncConnected type:None path:null
 [zk: 192.168.99.100:2181(CONNECTED) 0]
 ```
 
-- Check contains by
-  ```
-  ls /
-  ```
+- Check contains by `ls /`
   shows
   ```
   controller_epoch, controller, brokers, zookeeper, admin, isr_change_notification, consumers, config]
   ```
+  use
 
 ### Operations on Kafka
 -----
