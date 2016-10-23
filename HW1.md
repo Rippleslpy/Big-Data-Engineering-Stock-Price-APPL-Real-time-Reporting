@@ -203,7 +203,7 @@ WatchedEvent state:SyncConnected type:None path:null
 
 - Create Znode Data by `create /workers "bittiger"` shows
   ```
-  reated /workers
+  created /workers
   ```
   use `ls /` shows
   ```
@@ -227,6 +227,22 @@ aclVersion = 0
 ephemeralOwner = 0x0
 dataLength = 8
 numChildren = 0
+  ```
+
+- Delete Znode Data by `delete /workers` shows
+  ```
+  ```
+  use `ls /` shows
+  ```
+  [controller_epoch, controller, brokers, zookeeper, admin, isr_change_notification, consumers, config]
+  ```
+  use `ls /workers` shows
+  ```
+  Node does not exist: /workers
+  ```
+  use `get /workers` shows
+  ```
+  Node does not exist: /workers
   ```
 
 ### Operations on Kafka
