@@ -9,3 +9,16 @@ Bittiger CS202-1603 课程代码提交仓库
 Submission requirements, submit in form of Markdown document, need to have commandlines, and corresponding output
 * Play with Apache Kafka
 * Play with Apache Zookeeper
+<<<<<<< HEAD
+=======
+
+## Week 1 - Homework 2
+Finish the kafka related code, the code need to have the following functionalities
+* Read stock data from google finance
+* Send stock data to Apache Kafka (host and topic need to be configurable)
+* Able to add/delete stock to track
+
+## Week 2 - Homework 1
+Submission requirements, submit in form of Markdown document, need to have commandlines, and corresponding output
+* Play with Apache Cassandra
+>>>>>>> 19546b0a35b8c36ae97124354d927e683b6d01df
