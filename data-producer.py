@@ -81,7 +81,7 @@ def add_stock(symbol):
 	else:
 		# - do something
 		symbols.append(symbol)
-		scheduler.add_job(fetch_price, 'interval', [symbols], seconds=1, id=symbol)
+		scheduler.add_job(fetch_price, 'interval', [symbol.encode('utf-8')], seconds=1, id=symbol)
 	return jsonify(list(symbols)), 200
 
 # - remove stock
