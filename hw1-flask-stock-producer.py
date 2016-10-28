@@ -49,10 +49,13 @@ def fetch_price(symbol):
 
     try:
         # price = json.dumps(getQuotes(symbol))
+
         logger.debug('start fetching stock price for %s', symbol)
+        print type(symbol)
         stock_price = json.dumps(getQuotes(symbol))
-        #logger.debug('retrieved stock price %s', stock_price)
+        logger.debug('retrieved stock price %s', stock_price)
         producer.send(topic=topic_name, value=stock_price)
+
         logger.debug('finish writing %s price to kafka', symbol)
     except KafkaTimeoutError as timeout_error:
         logger.error('failed to send stock price for %s to kafka, caused by: %s', (symbol, timeout_error.message))
@@ -73,16 +76,18 @@ def add_stock(symbol):
 		return jsonify({
 			'error' : 'Stock symbol cannot be empty'
 			}), 400
-	if symbol in symbols:
+	s = symbol.encode('utf-8')
+	if s in symbols:
 		pass
 	else:
-		symbols.add(symbol)
-		schedule.add_job(fetch_price, 'interval', [symbol], seconds=1, id=symbol)
+		symbols.add(s)
+		schedule.add_job(fetch_price, 'interval', args=[s], seconds=1, id=s)
 	return jsonify(list(symbols)), 200
 
 #-- remove stock
 @app.route('/<symbol>', methods=['DELETE'])
 def del_stock(symbol):
+
 	if not symbol:
 		return jsonify({
 			'error' : 'Stock symbol cannot be empty'
