@@ -85,21 +85,3 @@ def del_stock(symbol):
 
 atexit.register(shutdown_hook)
 app.run(host='0.0.0.0', port=5000)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
