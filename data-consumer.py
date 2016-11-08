@@ -1,4 +1,4 @@
-# - consume data from kafka
+# - consume data from the old kafka topic: stock-analyzer
 
 from kafka import KafkaConsumer
 consumer = KafkaConsumer('stock-analyzer', bootstrap_servers='192.168.99.100:9092')
